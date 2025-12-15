@@ -162,17 +162,65 @@ body {
   content: "\f07c"; /* fa-folder-open */
 }/* make icons responsive on smaller screens */
 @media (max-width: 560px) {
+/* make artwork and icons responsive */
+.zyra_skin img,
+.black_ace img {
+	max-width: 100%;
+	height: auto;
+}
+
+/* Responsive layout: medium and small screens */
+@media (max-width: 900px) {
+	.content {
+		padding: 1.25rem;
+		max-width: 980px;
+	}
 	.folder-grid {
 		grid-template-columns: repeat(2, 1fr);
+		gap: 1.25rem;
 	}
-	.folder-icon {
-		width: 80px;
-		height: 60px;
+	.site-header {
+		justify-content: center;
+		gap: 0.75rem;
+		flex-wrap: wrap;
 	}
 }
 
-@media (max-width: 360px) {
+@media (max-width: 560px) {
+	/* keep a single column for narrow screens */
+	.content {
+		padding: 1rem;
+	}
 	.folder-grid {
 		grid-template-columns: 1fr;
+		gap: 0.9rem;
 	}
+	.folder-item {
+		padding: 1rem;
+		border-radius: 10px;
+	}
+	.folder-label {
+		font-size: 1rem;
+	}
+	.site-title {
+		font-size: 1.1rem;
+		text-align: center;
+		width: 100%;
+	}
+	.site-header {
+		justify-content: center;
+		text-align: center;
+	}
+	/* hide the large fixed decorative images on small screens to avoid overlap */
+	.zyra_skin,
+	.black_ace {
+		display: none;
+	}
+}
+
+/* very small devices */
+@media (max-width: 360px) {
+	.site-logo { width: 36px; }
+	.site-title { font-size: 1rem; }
+}
 }
